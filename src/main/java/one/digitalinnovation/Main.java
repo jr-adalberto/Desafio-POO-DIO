@@ -25,8 +25,43 @@ public class Main {
         mentoria.setDescricao("Descrição mentoria Java");
         mentoria.setData(LocalDate.now());
 
-        System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);
+//        System.out.println(curso1);
+//        System.out.println(curso2);
+//        System.out.println(mentoria);
+
+
+        BootCamp bootCamp = new BootCamp();
+        bootCamp.setNome("Bootcamp Java Developer");
+        bootCamp.setDescricao("Descrição Bootcamp Java Developer");
+        bootCamp.getConteudos().add(curso1);
+        bootCamp.getConteudos().add(curso2);
+        bootCamp.getConteudos().add(mentoria);
+
+        Dev devDadal = new Dev();
+        devDadal.setNome("Adalberto");
+        devDadal.inscreverBootCamp(bootCamp);
+        System.out.println("Contéudos Inscritos Dadal" + devDadal.getConteudosInscritos());
+        devDadal.progredir();
+        devDadal.progredir();
+        System.out.println("-");
+        System.out.println("Contéudos Inscritos Dadal" + devDadal.getConteudosInscritos());
+        System.out.println("Contéudos Concluídos Dadal" + devDadal.getConteudosConcluidos());
+
+        System.out.println("XP: " + devDadal.calcularTotalXp());
+
+        System.out.println("------");
+
+        Dev devBiasi = new Dev();
+        devBiasi.setNome("Gustavo");
+        devBiasi.inscreverBootCamp(bootCamp);
+        System.out.println("Contéudos Inscritos Biasi " + devBiasi.getConteudosInscritos());
+        devBiasi.progredir();
+        devBiasi.progredir();
+        devBiasi.progredir();
+        System.out.println("-");
+
+        System.out.println("Contéudos Inscritos Biasi " + devBiasi.getConteudosInscritos());
+        System.out.println("Contéudos Concluídos Biasi" + devBiasi.getConteudosConcluidos());
+        System.out.println("XP: " + devBiasi.calcularTotalXp());
     }
 }

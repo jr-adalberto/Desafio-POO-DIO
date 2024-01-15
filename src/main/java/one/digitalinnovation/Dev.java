@@ -17,16 +17,16 @@ public class Dev {
 
     public void progredir() {
         Optional<Conteudo> conteudo = this.conteudosInscritos.stream().findFirst();
-    if (conteudo.isPresent()){
-        this.conteudosConcluidos.add(conteudo.get());
-        this.conteudosInscritos.remove(conteudo.get());
-    } else {
-        System.out.println("Você não está matriculado em nenhum conteúdo!");
-    }
+        if (conteudo.isPresent()) {
+            this.conteudosConcluidos.add(conteudo.get());
+            this.conteudosInscritos.remove(conteudo.get());
+        } else {
+            System.out.println("Você não está matriculado em nenhum conteúdo!");
+        }
     }
 
     public double calcularTotalXp() {
-      return  this.conteudosConcluidos.stream().mapToDouble(Conteudo::calcularXp).sum();
+        return this.conteudosConcluidos.stream().mapToDouble(Conteudo::calcularXp).sum();
     }
 
     public String getNome() {
